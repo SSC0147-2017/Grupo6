@@ -13,10 +13,12 @@ public class Player : MonoBehaviour
 
     private bool grounded = false;
     private Rigidbody2D rigidbody2D;
+    private Animator anim;
 
     void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
@@ -34,6 +36,9 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         float h = Input.GetAxis("Horizontal");
+
+        anim.SetFloat("Speed", Mathf.Abs(h));
+        anim.SetFloat("Jump", Mathf.Abs(rigidbody2D.velocity.y));
         
         if (h * rigidbody2D.velocity.x < maxSpeed)
         {

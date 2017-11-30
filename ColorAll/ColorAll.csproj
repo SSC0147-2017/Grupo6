@@ -264,9 +264,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples\Scripts\WarpTextExample.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Images\Menu\a.txt" />
-    <None Include="Assets\Images\Tutorial\a.txt" />
-    <None Include="Assets\Scripts\a.txt" />
     <None Include="Assets\TextMesh Pro\Fonts\Anton OFL.txt" />
     <None Include="Assets\TextMesh Pro\Fonts\Bangers - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
