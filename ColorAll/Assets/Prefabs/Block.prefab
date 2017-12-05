@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1001463042646598}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.54, y: -0.7, z: 0}
+  m_LocalPosition: {x: 19.74299, y: 7.979888, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +78,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.8
 --- !u!61 &61349371348912088
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -95,14 +95,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.625, y: 0.625}
+    oldSize: {x: 0.8333333, y: 0.8333333}
     newSize: {x: 2.5, y: 2.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.625, y: 0.625}
+  m_Size: {x: 0.8333333, y: 0.8333333}
   m_EdgeRadius: 0
 --- !u!114 &114602188796521370
 MonoBehaviour:
@@ -124,6 +124,8 @@ MonoBehaviour:
   invalidColor: {r: 1, g: 0, b: 0, a: 0.709}
   validColor: {r: 0.07586217, g: 1, b: 0, a: 0.70980394}
   placedColor: {r: 1, g: 0.9725491, b: 0, a: 1}
+  boxCollider: {fileID: 0}
+  circleCollider: {fileID: 0}
 --- !u!212 &212116433652730498
 SpriteRenderer:
   m_ObjectHideFlags: 1

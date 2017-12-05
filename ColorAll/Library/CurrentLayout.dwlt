@@ -109,7 +109,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 85
+  controlID: 94
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 86
+  controlID: 95
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 87
+  controlID: 96
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -365,21 +365,21 @@ MonoBehaviour:
     width: 206
     height: 377
   m_TreeViewState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 742a0000
-    m_LastClickedID: 0
-    m_ExpandedIDs: a6fbffff00000000
+    scrollPos: {x: 0, y: 24}
+    m_SelectedIDs: 042b0000
+    m_LastClickedID: 11012
+    m_ExpandedIDs: a6fbffff000000002c2b0000302b00007a2b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Block(Clone)
-      m_OriginalName: Block(Clone)
+      m_Name: SpawnPoint
+      m_OriginalName: SpawnPoint
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: -32776
+      m_UserData: -98100
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -418,14 +418,14 @@ MonoBehaviour:
     width: 677
     height: 377
   m_SceneLighting: 1
-  lastFramingTime: 3984.2867071779287
+  lastFramingTime: 5009.7347126245395
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -6.26, y: 30.96, z: -0.1}
+    m_Target: {x: 27.651297, y: 12.957061, z: 0.15820312}
     speed: 2
-    m_Value: {x: -6.26, y: 30.96, z: -0.1}
+    m_Value: {x: 27.651297, y: 12.957061, z: 0.15820312}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -452,9 +452,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1.495277
+    m_Target: 6.2347183
     speed: 2
-    m_Value: 1.495277
+    m_Value: 6.2347183
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -532,18 +532,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Images/Sam
   m_ViewMode: 1
   m_StartGridSize: 75
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Images/Sam
   m_LastFoldersGridSize: 75
   m_LastProjectPath: C:\Users\guyfa\Documents\Repos\Unity\Grupo6\ColorAll
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 6a2a0000
-    m_LastClickedID: 10858
+    scrollPos: {x: 0, y: 37.166668}
+    m_SelectedIDs: 44290000
+    m_LastClickedID: 10564
     m_ExpandedIDs: 00000000142800003a290000b6290000262a0000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -600,7 +600,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000000000006c260000262b000010280000ce280000
+    m_ExpandedInstanceIDs: c6230000000000006c260000262b000010280000ce280000fe290000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -727,7 +727,7 @@ MonoBehaviour:
     y: 92
     width: 475
     height: 654
-  m_ScrollPosition: {x: 0, y: 406.95508}
+  m_ScrollPosition: {x: 0, y: 0}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: -160

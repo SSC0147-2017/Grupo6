@@ -6,15 +6,16 @@ public class Block : MonoBehaviour
 {
     [HideInInspector] public Vector3 topPos, bottomPos, leftPos, rightPos, center, size;
     public Color invalidColor, validColor, placedColor;
+    public BoxCollider2D boxCollider;
+    public CircleCollider2D circleCollider;
 
     private enum BlockState { invalid, valid, placed };
     private BlockState state;
     private SpriteRenderer spriteRenderer;
-    private BoxCollider2D boxCollider;
-    private CircleCollider2D circleCollider;
 
-    private bool snapping = false;
     private bool placed = false;
+
+    private Vector3 lastMousePos = Vector3.zero;
 
     // Use this for initialization
     void Start()
@@ -34,10 +35,12 @@ public class Block : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!snapping && !placed)
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (mousePosition != lastMousePos && !placed)
         {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector3(mousePosition.x, mousePosition.y, -0.1f);
+            lastMousePos = mousePosition;
         }
     }
 
@@ -70,43 +73,29 @@ public class Block : MonoBehaviour
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            if (collider.bounds.Contains(mousePosition))
-            {
-                snapping = true;
-                return;
-            }
-
             if (mousePosition.y > otherBlock.center.y && 
                 mousePosition.x > otherBlock.center.x - otherBlock.size.x / 2 && 
                 mousePosition.x < otherBlock.center.x + otherBlock.size.x)
             {
                 transform.position = otherBlock.topPos;
-                snapping = true;
             }
             else if (mousePosition.y < otherBlock.center.y &&
                      mousePosition.x > otherBlock.center.x - otherBlock.size.x / 2 &&
                      mousePosition.x < otherBlock.center.x + otherBlock.size.x)
             {
                 transform.position = otherBlock.bottomPos;
-                snapping = true;
             }
             else if (mousePosition.x > otherBlock.center.x &&
                      mousePosition.y > otherBlock.center.y - otherBlock.size.y / 2 &&
                      mousePosition.y < otherBlock.center.y + otherBlock.size.y)
             {
                 transform.position = otherBlock.rightPos;
-                snapping = true;
             }
             else if (mousePosition.x < otherBlock.center.x &&
                      mousePosition.y > otherBlock.center.y - otherBlock.size.y / 2 &&
                      mousePosition.y < otherBlock.center.y + otherBlock.size.y)
             {
                 transform.position = otherBlock.leftPos;
-                snapping = true;
-            }
-            else
-            {
-                snapping = false;
             }
         }
     }
@@ -122,12 +111,19 @@ public class Block : MonoBehaviour
 
         if (otherBlock)
         {
-            snapping = false;
         }
         else
         {
             state = BlockState.valid;
             spriteRenderer.color = validColor;
+        }
+    }
+
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(1) && placed)
+        {
+            Destroy(gameObject);
         }
     }
 
