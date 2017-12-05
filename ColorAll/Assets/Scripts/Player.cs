@@ -10,10 +10,14 @@ public class Player : MonoBehaviour
     public float maxSpeed = 5f;
     public float jumpForce = 1000f;
     public Transform groundCheck;
+    public GameObject blockPrebab;
 
     private bool grounded = false;
+    private bool placingEnabled = false;
+    private bool blockFixed = true;
     private Rigidbody2D rigidbody2D;
     private Animator anim;
+    private Block block = null;
 
     void Awake()
     {
@@ -26,10 +30,31 @@ public class Player : MonoBehaviour
     {
         grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Scene"));
 
-        Debug.Log(grounded);
-        if (Input.GetKeyDown(KeyCode.W) && grounded)
+        if (Input.GetButtonDown("Jump") && grounded)
         {
             jump = true;
+        }
+        if (Input.GetButtonDown("Block1"))
+        {
+            placingEnabled = !placingEnabled;
+
+            if (!placingEnabled && block)
+            {
+                Destroy(block.gameObject);
+                blockFixed = true;
+            }
+            
+            if (blockFixed && placingEnabled)
+            {
+                block = Instantiate(blockPrebab).GetComponent<Block>();
+                blockFixed = false;
+            }
+
+        }
+        if (Input.GetButtonDown("Place") && placingEnabled)
+        {
+            blockFixed = block.PlaceBlock();
+            block = Instantiate(blockPrebab).GetComponent<Block>();
         }
     }
 
@@ -57,7 +82,14 @@ public class Player : MonoBehaviour
 
         if (jump)
         {
-            rigidbody2D.AddForce(new Vector2(0f, jumpForce));
+            float horizontalJumpForce = 0f;
+
+            if (rigidbody2D.velocity.x != 0f)
+            {
+                horizontalJumpForce = facingRight ? jumpForce : -jumpForce;
+            }
+
+            rigidbody2D.AddForce(new Vector2(horizontalJumpForce, jumpForce));
             jump = false;
         }
     }
