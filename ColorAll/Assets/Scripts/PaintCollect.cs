@@ -20,14 +20,17 @@ public class PaintCollect : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GetComponent<SpriteRenderer>().enabled = false;
-        showSpeechBubble();
-        player.maxBlocks = 5;
+        if (collision.name == "Body")
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+            showSpeechBubble();
+            player.maxBlocks = 5;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        hideSpeechBubble();
+        if(collision.name == "Body") hideSpeechBubble();
     }
 
     private void showSpeechBubble()

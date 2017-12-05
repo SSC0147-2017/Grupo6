@@ -20,13 +20,17 @@ public class CallPlayerStart : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        showSpeechBubble();
-        player.maxBlocks = 0;
+        if (collision.name == "Body")
+        {
+            showSpeechBubble();
+            player.maxBlocks = 0;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        hideSpeechBubble();
+        Debug.Log(collision.name);
+        if (collision.name == "Body") hideSpeechBubble();
     }
 
     private void showSpeechBubble()
