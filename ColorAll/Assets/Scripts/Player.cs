@@ -18,11 +18,14 @@ public class Player : MonoBehaviour
     private Rigidbody2D rigidbody2D;
     private Animator anim;
     private Block block = null;
+    public int maxBlocks = 5;
+    private int blocksPlaced;
 
     void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        blocksPlaced = 0;
     }
 	
 	// Update is called once per frame
@@ -34,7 +37,7 @@ public class Player : MonoBehaviour
         {
             jump = true;
         }
-        if (Input.GetButtonDown("Block1"))
+        if (Input.GetButtonDown("Block1") && blocksPlaced < maxBlocks)
         {
             placingEnabled = !placingEnabled;
 
@@ -55,6 +58,7 @@ public class Player : MonoBehaviour
         {
             blockFixed = block.PlaceBlock();
             block = Instantiate(blockPrebab).GetComponent<Block>();
+            blocksPlaced++;
         }
     }
 
