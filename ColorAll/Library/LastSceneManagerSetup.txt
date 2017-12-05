@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/_Scenes/01 Level_00.unity
+- path: Assets/_Scenes/00 Start Menu.unity
   isLoaded: 1
   isActive: 1

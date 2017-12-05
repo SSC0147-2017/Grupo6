@@ -229,8 +229,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Block.cs" />
+    <Compile Include="Assets\Scripts\CallPlayerStart.cs" />
     <Compile Include="Assets\Scripts\FollowPlayer.cs" />
+    <Compile Include="Assets\Scripts\PaintCollect.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\SideQuest.cs" />
     <Compile Include="Assets\Scripts\WaterDroplet.cs" />
     <Compile Include="Assets\Scripts\WaterSpawner.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples\Scripts\Benchmark01.cs" />

@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float moveForce = 365f;
     public float maxSpeed = 5f;
     public float jumpForce = 1000f;
+    public float maxHealth = 100f;
     public Transform groundCheck;
     public GameObject blockPrebab;
 
@@ -20,12 +21,15 @@ public class Player : MonoBehaviour
     private Block block = null;
     public int maxBlocks = 5;
     private int blocksPlaced;
+    private float health;
 
     void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
         blocksPlaced = 0;
+        health = maxHealth;
     }
 	
 	// Update is called once per frame
@@ -56,9 +60,11 @@ public class Player : MonoBehaviour
         }
         if (Input.GetButtonDown("Place") && placingEnabled)
         {
-            blockFixed = block.PlaceBlock();
-            block = Instantiate(blockPrebab).GetComponent<Block>();
-            blocksPlaced++;
+            if (blockFixed = block.PlaceBlock())
+            {
+                block = Instantiate(blockPrebab).GetComponent<Block>();
+                blocksPlaced++;
+            }
         }
     }
 
@@ -104,5 +110,10 @@ public class Player : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    public void InflictDamage(float damage)
+    {
+        health -= damage;
     }
 }
