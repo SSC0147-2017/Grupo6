@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     private Block block = null;
     public int maxBlocks = 5;
     private float health;
+    private bool paused = false;
 
     void Awake()
     {
@@ -74,6 +75,19 @@ public class Player : MonoBehaviour
                 placingEnabled = false;
                 blocksPlaced = 0;
             }
+        }
+
+        if (Input.GetButtonDown("Pause"))
+        {
+            if (paused)
+            {
+                FindObjectOfType<MenuManager>().SetActivePauseMenuWindow(0);
+            }
+            else
+            {
+                FindObjectOfType<MenuManager>().SetActivePauseMenuWindow(1);
+            }
+            paused = !paused;
         }
     }
 

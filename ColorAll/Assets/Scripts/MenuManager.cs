@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public GameObject mainMenuPanel, settingsPanel, howToPlayPanel;
+    public GameObject mainMenuPanel, settingsPanel, howToPlayPanel, backPanel;
 
     private AudioSource music;
 
@@ -45,6 +45,26 @@ public class MenuManager : MonoBehaviour
         mainMenuPanel.SetActive(window == 0);
         settingsPanel.SetActive(window == 1);
         howToPlayPanel.SetActive(window == 2);
+    }
+
+    public void SetActivePauseMenuWindow(int window)
+    {
+        if (window > 0)
+        {
+            Time.timeScale = 0f;
+            backPanel.SetActive(true);
+            mainMenuPanel.SetActive(window == 1);
+            settingsPanel.SetActive(window == 2);
+            howToPlayPanel.SetActive(window == 3);
+        }
+        else
+        {
+            mainMenuPanel.SetActive(false);
+            settingsPanel.SetActive(false);
+            howToPlayPanel.SetActive(false);
+            backPanel.SetActive(false);
+            Time.timeScale = 1f;
+        }
     }
 
     public void QuitGame()
