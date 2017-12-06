@@ -6,6 +6,8 @@ public class PaintCollect : MonoBehaviour {
 
     public GameObject sam;
     public GameObject speechBubble;
+    public GameObject bottle;
+
     private Player player;
 
 	// Use this for initialization
@@ -25,6 +27,7 @@ public class PaintCollect : MonoBehaviour {
             GetComponent<SpriteRenderer>().enabled = false;
             showSpeechBubble();
             player.maxBlocks = 5;
+            bottle.GetComponent<WaterSpawner>().ChangeInterval(0.4f);
         }
     }
 

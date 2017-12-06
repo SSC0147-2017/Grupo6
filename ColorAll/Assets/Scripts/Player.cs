@@ -45,7 +45,6 @@ public class Player : MonoBehaviour
         {
             placingEnabled = !placingEnabled;
 
-            Debug.Log("Hello?");
             if (!placingEnabled && block)
             {
                 Destroy(block.gameObject);
