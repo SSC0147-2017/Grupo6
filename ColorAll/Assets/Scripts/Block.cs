@@ -124,6 +124,7 @@ public class Block : MonoBehaviour
         if (Input.GetMouseButtonDown(1) && placed)
         {
             Destroy(gameObject);
+            FindObjectOfType<Player>().blocksPlaced--;
         }
     }
 

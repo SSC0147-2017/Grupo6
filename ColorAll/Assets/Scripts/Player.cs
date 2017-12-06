@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public float maxHealth = 100f;
     public Transform groundCheck;
     public GameObject blockPrebab;
+    public int blocksPlaced;
 
     private bool grounded = false;
     private bool placingEnabled = false;
@@ -20,7 +21,6 @@ public class Player : MonoBehaviour
     private Animator anim;
     private Block block = null;
     public int maxBlocks = 5;
-    private int blocksPlaced;
     private float health;
 
     void Awake()
@@ -41,29 +41,39 @@ public class Player : MonoBehaviour
         {
             jump = true;
         }
-        if (Input.GetButtonDown("Block1") && blocksPlaced < maxBlocks)
+        if (Input.GetButtonDown("Block1") && maxBlocks > 0)
         {
             placingEnabled = !placingEnabled;
 
+            Debug.Log("Hello?");
             if (!placingEnabled && block)
             {
                 Destroy(block.gameObject);
                 blockFixed = true;
             }
             
-            if (blockFixed && placingEnabled)
+            if (blockFixed && placingEnabled && maxBlocks > 0)
             {
                 block = Instantiate(blockPrebab).GetComponent<Block>();
                 blockFixed = false;
             }
 
         }
-        if (Input.GetButtonDown("Place") && placingEnabled)
+        if (Input.GetButtonDown("Place") && placingEnabled && blocksPlaced < maxBlocks)
         {
             if (blockFixed = block.PlaceBlock())
             {
                 block = Instantiate(blockPrebab).GetComponent<Block>();
                 blocksPlaced++;
+            }
+        }
+        if (Input.GetButtonDown("Reset"))
+        {
+            foreach (Block bl in FindObjectsOfType<Block>())
+            {
+                Destroy(bl.gameObject);
+                placingEnabled = false;
+                blocksPlaced = 0;
             }
         }
     }
