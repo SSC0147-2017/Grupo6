@@ -44,6 +44,9 @@ TagManager:
   - name: SpeechBubble
     uniqueID: 1190459069
     locked: 0
+  - name: Second
+    uniqueID: 1134078431
+    locked: 0
   - name: Front
     uniqueID: 4107657179
     locked: 0
