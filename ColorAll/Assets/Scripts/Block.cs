@@ -125,6 +125,21 @@ public class Block : MonoBehaviour
         {
             Destroy(gameObject);
             FindObjectOfType<Player>().blocksPlaced--;
+            int blocksPlaced = FindObjectOfType<Player>().blocksPlaced;
+            switch (blocksPlaced)
+            {
+                case 0:
+                    FindObjectOfType<Player>().blockCounter0.SetActive(true);
+                    break;
+
+                case 1:
+                    FindObjectOfType<Player>().blockCounter1.SetActive(true);
+                    break;
+
+                case 2:
+                    FindObjectOfType<Player>().blockCounter2.SetActive(true);
+                    break;
+            }
         }
     }
 

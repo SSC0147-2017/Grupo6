@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public float maxHealth = 100f;
     public Transform groundCheck;
     public GameObject blockPrebab;
+    public GameObject blockCounter0, blockCounter1, blockCounter2;
     public int blocksPlaced;
 
     private bool grounded = false;
@@ -20,7 +21,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rigidbody2D;
     private Animator anim;
     private Block block = null;
-    public int maxBlocks = 5;
+    public int maxBlocks = 3;
     private float health;
     private bool paused = false;
 
@@ -65,6 +66,20 @@ public class Player : MonoBehaviour
             {
                 block = Instantiate(blockPrebab).GetComponent<Block>();
                 blocksPlaced++;
+                switch (blocksPlaced)
+                {
+                    case 1:
+                        blockCounter0.SetActive(false);
+                        break;
+
+                    case 2:
+                        blockCounter1.SetActive(false);
+                        break;
+
+                    case 3:
+                        blockCounter2.SetActive(false);
+                        break;
+                }
             }
         }
         if (Input.GetButtonDown("Reset"))
@@ -74,6 +89,9 @@ public class Player : MonoBehaviour
                 Destroy(bl.gameObject);
                 placingEnabled = false;
                 blocksPlaced = 0;
+                blockCounter0.SetActive(true);
+                blockCounter1.SetActive(true);
+                blockCounter2.SetActive(true);
             }
         }
 

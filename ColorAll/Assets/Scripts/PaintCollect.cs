@@ -7,13 +7,18 @@ public class PaintCollect : MonoBehaviour {
     public GameObject sam;
     public GameObject speechBubble;
     public GameObject bottle;
+    public GameObject blockCounter0, blockCounter1, blockCounter2;
 
     private Player player;
+    private bool firstTime = true;
 
 	// Use this for initialization
 	void Start () {
-        player = FindObjectOfType<Player>();	
-	}
+        player = FindObjectOfType<Player>();
+        blockCounter0.SetActive(false);
+        blockCounter1.SetActive(false);
+        blockCounter2.SetActive(false);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -22,8 +27,9 @@ public class PaintCollect : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "Body")
+        if (collision.name == "Body" && firstTime)
         {
+            firstTime = false;
             GetComponent<SpriteRenderer>().enabled = false;
             showSpeechBubble();
             player.maxBlocks = 5;
@@ -40,6 +46,9 @@ public class PaintCollect : MonoBehaviour {
     {
         sam.GetComponent<SpriteRenderer>().enabled = true;
         speechBubble.GetComponent<SpriteRenderer>().enabled = true;
+        blockCounter0.SetActive(true);
+        blockCounter1.SetActive(true);
+        blockCounter2.SetActive(true);
     }
 
     private void hideSpeechBubble()
