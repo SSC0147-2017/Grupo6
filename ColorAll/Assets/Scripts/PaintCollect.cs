@@ -32,7 +32,7 @@ public class PaintCollect : MonoBehaviour {
             firstTime = false;
             GetComponent<SpriteRenderer>().enabled = false;
             showSpeechBubble();
-            player.maxBlocks = 5;
+            player.maxBlocks = 3;
             bottle.GetComponent<WaterSpawner>().ChangeInterval(0.4f);
         }
     }
