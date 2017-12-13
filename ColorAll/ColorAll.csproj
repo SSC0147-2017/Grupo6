@@ -224,6 +224,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Block.cs" />
     <Compile Include="Assets\Scripts\CallPlayerStart.cs" />
+    <Compile Include="Assets\Scripts\CollectibleExtra.cs" />
     <Compile Include="Assets\Scripts\EndTrigger.cs" />
     <Compile Include="Assets\Scripts\FollowPlayer.cs" />
     <Compile Include="Assets\Scripts\MenuManager.cs" />

@@ -16,6 +16,7 @@ public class Block : MonoBehaviour
     private bool placed = false;
 
     private Vector3 lastMousePos = Vector3.zero;
+    private Player player;
 
     // Use this for initialization
     void Start()
@@ -30,6 +31,8 @@ public class Block : MonoBehaviour
         circleCollider.enabled = false;
 
         size = boxCollider.bounds.size;
+
+        player = FindObjectOfType<Player>();
     }
 
     // Update is called once per frame
@@ -124,22 +127,9 @@ public class Block : MonoBehaviour
         if (Input.GetMouseButtonDown(1) && placed)
         {
             Destroy(gameObject);
-            FindObjectOfType<Player>().blocksPlaced--;
-            int blocksPlaced = FindObjectOfType<Player>().blocksPlaced;
-            switch (blocksPlaced)
-            {
-                case 0:
-                    FindObjectOfType<Player>().blockCounter0.SetActive(true);
-                    break;
-
-                case 1:
-                    FindObjectOfType<Player>().blockCounter1.SetActive(true);
-                    break;
-
-                case 2:
-                    FindObjectOfType<Player>().blockCounter2.SetActive(true);
-                    break;
-            }
+            player.blocksPlaced--;
+            player.removedBlock();
+            
         }
     }
 

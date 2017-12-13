@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public float maxHealth = 100f;
     public Transform groundCheck;
     public GameObject blockPrebab;
-    public GameObject blockCounter0, blockCounter1, blockCounter2;
+    public GameObject blockCounter0, blockCounter1, blockCounter2, blockCounterExtra;
     public int blocksPlaced;
 
     private bool grounded = false;
@@ -67,20 +67,7 @@ public class Player : MonoBehaviour
             {
                 block = Instantiate(blockPrebab).GetComponent<Block>();
                 blocksPlaced++;
-                switch (blocksPlaced)
-                {
-                    case 1:
-                        blockCounter0.SetActive(false);
-                        break;
-
-                    case 2:
-                        blockCounter1.SetActive(false);
-                        break;
-
-                    case 3:
-                        blockCounter2.SetActive(false);
-                        break;
-                }
+                addedBlock();
             }
         }
         if (Input.GetButtonDown("Reset"))
@@ -93,6 +80,7 @@ public class Player : MonoBehaviour
                 blockCounter0.SetActive(true);
                 blockCounter1.SetActive(true);
                 blockCounter2.SetActive(true);
+                if (maxBlocks == 4) blockCounterExtra.SetActive(true);
             }
         }
 
@@ -158,5 +146,96 @@ public class Player : MonoBehaviour
     {
         health -= damage;
         if (health <= 0) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void addedBlock()
+    {
+        switch(maxBlocks){
+            case 3:
+                switch (blocksPlaced)
+                {
+                    case 1:
+                        blockCounter0.SetActive(false);
+                        break;
+
+                    case 2:
+                        blockCounter1.SetActive(false);
+                        break;
+
+                    case 3:
+                        blockCounter2.SetActive(false);
+                        break;
+                }
+                break;
+
+            case 4:
+                switch (blocksPlaced)
+                {
+                    case 1:
+                        blockCounter0.SetActive(false);
+                        break;
+
+                    case 2:
+                        blockCounterExtra.SetActive(false);
+                        break;
+
+                    case 3:
+                        blockCounter1.SetActive(false);
+                        break;
+
+                    case 4:
+                        blockCounter2.SetActive(false);
+                        break;
+                }
+                break;
+
+        }
+        
+    }
+
+    public void removedBlock()
+    {
+        switch (maxBlocks)
+        {
+            case 3:
+                switch (blocksPlaced)
+                {
+                    case 0:
+                        blockCounter0.SetActive(true);
+                        break;
+
+                    case 1:
+                        blockCounter1.SetActive(true);
+                        break;
+
+                    case 2:
+                        blockCounter2.SetActive(true);
+                        break;
+                }
+                break;
+
+            case 4:
+                switch (blocksPlaced)
+                {
+                    case 0:
+                        blockCounter0.SetActive(true);
+                        break;
+
+                    case 1:
+                        blockCounterExtra.SetActive(true);
+                        break;
+
+                    case 2:
+                        blockCounter1.SetActive(true);
+                        break;
+
+                    case 3:
+                        blockCounter2.SetActive(true);
+                        break;
+                }
+                break;
+
+        }
+
     }
 }
