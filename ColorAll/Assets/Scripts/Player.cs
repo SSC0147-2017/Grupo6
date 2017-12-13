@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public float moveForce = 365f;
     public float maxSpeed = 5f;
     public float jumpForce = 1000f;
-    public float maxHealth = 100f;
+    public float maxHealth = 75f;
     public Transform groundCheck;
     public GameObject blockPrebab;
     public GameObject blockCounter0, blockCounter1, blockCounter2, blockCounterExtra;
@@ -146,6 +146,7 @@ public class Player : MonoBehaviour
     {
         health -= damage;
         if (health <= 0) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        anim.SetTrigger("DamageTrigger");
     }
 
     private void addedBlock()

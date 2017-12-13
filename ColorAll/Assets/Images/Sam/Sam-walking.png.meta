@@ -1,12 +1,18 @@
 fileFormatVersion: 2
 guid: 03f9f451bd8af714a8c552bbba8aadaa
-timeCreated: 1512060053
+timeCreated: 1513205989
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Sam-walking_0
     21300002: Sam-walking_1
     21300004: Sam-walking_2
+    21300006: Sam-walking_3
+    21300008: Sam-walking_4
+    21300010: Sam-walking_5
+    21300012: Sam-walking_6
+    21300014: Sam-walking_7
+    21300016: Sam-walking_8
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -103,7 +109,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 19
-        y: 10
+        y: 2110
         width: 906
         height: 1028
       alignment: 0
@@ -116,9 +122,9 @@ TextureImporter:
       name: Sam-walking_1
       rect:
         serializedVersion: 2
-        x: 1018
-        y: 10
-        width: 744
+        x: 1017
+        y: 2110
+        width: 745
         height: 1028
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -130,10 +136,94 @@ TextureImporter:
       name: Sam-walking_2
       rect:
         serializedVersion: 2
-        x: 1966
-        y: 16
-        width: 860
-        height: 1024
+        x: 1965
+        y: 2115
+        width: 861
+        height: 1025
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sam-walking_3
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 1054
+        width: 906
+        height: 1027
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sam-walking_4
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 1042
+        width: 745
+        height: 1028
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sam-walking_5
+      rect:
+        serializedVersion: 2
+        x: 1963
+        y: 1048
+        width: 862
+        height: 1027
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sam-walking_6
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 10
+        width: 906
+        height: 1027
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sam-walking_7
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 10
+        width: 745
+        height: 1027
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sam-walking_8
+      rect:
+        serializedVersion: 2
+        x: 1957
+        y: 13
+        width: 862
+        height: 1027
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
