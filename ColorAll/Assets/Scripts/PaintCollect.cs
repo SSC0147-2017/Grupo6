@@ -5,7 +5,7 @@ using UnityEngine;
 public class PaintCollect : MonoBehaviour {
 
     public GameObject sam;
-    public GameObject speechBubble;
+    public GameObject speechBubble, speechSideQuest;
     public GameObject bottle;
     public GameObject blockCounter0, blockCounter1, blockCounter2;
 
@@ -29,6 +29,7 @@ public class PaintCollect : MonoBehaviour {
     {
         if (collision.name == "Body" && firstTime)
         {
+            DestroyObject(speechSideQuest);
             firstTime = false;
             GetComponent<SpriteRenderer>().enabled = false;
             showSpeechBubble();

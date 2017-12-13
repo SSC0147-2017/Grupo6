@@ -10,6 +10,7 @@ public class SideQuest : MonoBehaviour {
     public GameObject droplet;
     public GameObject speechBubbleWarning;
     public GameObject x;
+    public GameObject startSpeech;
 
     // Use this for initialization
     void Start () {
@@ -23,6 +24,7 @@ public class SideQuest : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        DestroyObject(startSpeech);
         if (collision.name == "Body") showSpeechBubble();
     }
 
