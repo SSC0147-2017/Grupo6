@@ -34,9 +34,14 @@ public class Player : MonoBehaviour
         blocksPlaced = 0;
         health = maxHealth;
     }
-	
-	// Update is called once per frame
-	void Update() 
+
+    void Start()
+    {
+        rigidbody2D.velocity = Vector3.zero;
+    }
+
+    // Update is called once per frame
+    void Update() 
     {
         grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Scene"));
 
