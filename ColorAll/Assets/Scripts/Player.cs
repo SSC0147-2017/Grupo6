@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public int maxBlocks = 3;
     private float health;
     private bool paused = false;
+    private bool endGame = false;
 
     void Awake()
     {
@@ -45,11 +46,11 @@ public class Player : MonoBehaviour
     {
         grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Scene"));
 
-        if (Input.GetButtonDown("Jump") && grounded)
+        if (Input.GetButtonDown("Jump") && grounded && !endGame)
         {
             jump = true;
         }
-        if (Input.GetButtonDown("Block1") && maxBlocks > 0)
+        if (Input.GetButtonDown("Block1") && maxBlocks > 0 && !endGame)
         {
             placingEnabled = !placingEnabled;
 
@@ -66,7 +67,7 @@ public class Player : MonoBehaviour
             }
 
         }
-        if (Input.GetButtonDown("Place") && placingEnabled && blocksPlaced < maxBlocks)
+        if (Input.GetButtonDown("Place") && placingEnabled && blocksPlaced < maxBlocks && !endGame)
         {
             if (blockFixed = block.PlaceBlock())
             {
@@ -75,7 +76,7 @@ public class Player : MonoBehaviour
                 addedBlock();
             }
         }
-        if (Input.GetButtonDown("Reset"))
+        if (Input.GetButtonDown("Reset") && !endGame)
         {
             if (blocksPlaced > 0)
             {
@@ -108,7 +109,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        float h = Input.GetAxis("Horizontal");
+        float h = (endGame) ? 0f : Input.GetAxis("Horizontal");
 
         anim.SetFloat("Speed", Mathf.Abs(h));
         anim.SetFloat("Jump", Mathf.Abs(rigidbody2D.velocity.y));
@@ -247,4 +248,10 @@ public class Player : MonoBehaviour
         }
 
     }
+
+    public void SetEndTriggerOn()
+    {
+        endGame = true;
+    }
 }
+    
