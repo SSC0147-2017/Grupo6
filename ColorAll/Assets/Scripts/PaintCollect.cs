@@ -2,28 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PaintCollect : MonoBehaviour {
+public class PaintCollect : MonoBehaviour
+{
 
     public GameObject sam;
     public GameObject speechBubble, speechSideQuest;
     public GameObject bottle;
     public GameObject blockCounter0, blockCounter1, blockCounter2;
+    public GameObject pencil;
 
     private Player player;
     private bool firstTime = true;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         player = FindObjectOfType<Player>();
         blockCounter0.SetActive(false);
         blockCounter1.SetActive(false);
         blockCounter2.SetActive(false);
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -35,12 +39,17 @@ public class PaintCollect : MonoBehaviour {
             showSpeechBubble();
             player.maxBlocks = 3;
             bottle.GetComponent<WaterSpawner>().ChangeInterval(0.4f);
+            Vector3 vec = new Vector3(1.65f, 0, 0);
+            pencil.transform.position += vec;
+            vec = new Vector3(-0.135555554f, 0, 0);
+            pencil.transform.localScale += vec;
+            //FindObjectOfType<TutorialSpeech>().ready = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.name == "Body") hideSpeechBubble();
+        if (collision.name == "Body") hideSpeechBubble();
     }
 
     private void showSpeechBubble()
