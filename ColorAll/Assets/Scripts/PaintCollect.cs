@@ -43,7 +43,7 @@ public class PaintCollect : MonoBehaviour
             pencil.transform.position += vec;
             vec = new Vector3(-0.135555554f, 0, 0);
             pencil.transform.localScale += vec;
-            //FindObjectOfType<TutorialSpeech>().ready = true;
+            FindObjectOfType<TutorialSpeech>().ready = true;
         }
     }
 

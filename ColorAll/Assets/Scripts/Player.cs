@@ -77,15 +77,18 @@ public class Player : MonoBehaviour
         }
         if (Input.GetButtonDown("Reset"))
         {
-            foreach (Block bl in FindObjectsOfType<Block>())
+            if (blocksPlaced > 0)
             {
-                Destroy(bl.gameObject);
-                placingEnabled = false;
-                blocksPlaced = 0;
-                blockCounter0.SetActive(true);
-                blockCounter1.SetActive(true);
-                blockCounter2.SetActive(true);
-                if (maxBlocks == 4) blockCounterExtra.SetActive(true);
+                foreach (Block bl in FindObjectsOfType<Block>())
+                {
+                    Destroy(bl.gameObject);
+                    placingEnabled = false;
+                    blocksPlaced = 0;
+                    blockCounter0.SetActive(true);
+                    blockCounter1.SetActive(true);
+                    blockCounter2.SetActive(true);
+                    if (maxBlocks == 4) blockCounterExtra.SetActive(true);
+                }
             }
         }
 

@@ -231,6 +231,7 @@
     <Compile Include="Assets\Scripts\PaintCollect.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\SideQuest.cs" />
+    <Compile Include="Assets\Scripts\TutorialSpeech.cs" />
     <Compile Include="Assets\Scripts\VolumeSetter.cs" />
     <Compile Include="Assets\Scripts\WaterDroplet.cs" />
     <Compile Include="Assets\Scripts\WaterSpawner.cs" />
